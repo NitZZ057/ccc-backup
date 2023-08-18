@@ -1,0 +1,80 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+body {
+  color: #e2e2e2;
+    /* background: #1d1d1d; */
+    /* background: #1AA7EC; */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    line-height: 1.6;
+    
+    /* overflow-x: hidden; */
+    /* overflow: hidden; */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #292929;  */
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  #1E2F97;
+  /* background: #832eab;  */
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::selection {
+  background: #121212;
+}
+
+::-moz-selection {
+  background: #121212;
+}
+
+h2 {
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+h3 {
+  color: #e2e2e2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 7.5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media all and (max-width: 700px) {
+  body {
+      font-size: 11px;
+  }
+  h2 {
+      font-size: 14px;
+  }
+  h3 {
+      font-size: 12px;
+  }
+}

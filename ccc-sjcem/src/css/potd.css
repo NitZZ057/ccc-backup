@@ -1,0 +1,153 @@
+
+
+.leaderboard-container{
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: rgb(206, 221, 185); */
+    /* background-image: linear-gradient(to bottom,rgb(118, 235, 118),rgb(206, 221, 185)); */
+    color: white;
+    background: #3241a4;
+    border-radius: 15px;
+}
+
+.winner-title{
+    background: white;
+    color: #3241a4;
+    padding: 1% 2%;
+    border-radius: 15px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.winner{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 0;
+    font-size: 20px;
+}
+
+.tb{
+    width: 15%;
+    text-align: center;
+    background-color: white;
+    color: #3241a4;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* .ln{
+    border-bottom: 1px solid white;
+} */
+
+.potd-btn{
+ width: 200px;
+ height: 50px;
+ /* background: #640dce; */
+ color: white;
+ display: flex;
+justify-content: center;
+align-items: center;
+ text-align: center;
+ border-radius: 15px;
+}
+
+.potd-icon{
+    width: 60px;
+    height: 60px;
+}
+
+.potd-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4%;
+
+}
+
+.potd-title{
+    background: white;
+    color: #3241a4;
+    padding: 1% 2%;
+    border-radius: 15px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.potd-question-title{
+    color: #3241a4;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 2%;
+}
+
+.potd-input{
+    margin-block: 3%;
+    width: 100%;
+}
+
+.theme-lang{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center;
+    margin: 2%; */
+}
+
+.theme{
+    background: #3241a4;
+    padding: 0.5% 1%;
+    color: white;
+    font-weight: 600;
+    margin: 1% 0;
+    border-radius: 10px;
+}
+
+.potd-submit{
+   width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+}
+
+.potd-submit-btn{
+    width: 100px;
+    height: 40px;
+    background: rgb(5, 189, 5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    margin: 2%;
+    font-weight: 600;
+}
+
+/* .potd-submit-btn click effect */
+.potd-submit-btn:active{
+    background: rgb(3, 104, 3);
+    color: white;
+    cursor: pointer;
+}
+
+.result{
+    color: black;
+    font-weight: 600;
+}
+
+.error{
+    color: red;
+}
+
+
+
+

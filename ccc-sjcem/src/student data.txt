@@ -1,0 +1,357 @@
+{/* Techincal team */}
+<div className="teamTitle">
+  <h2 className="headTitle">Techincal Team Members</h2>
+  <div className="teamMembersContainer">
+    {/* Gaurav Tiwari */}
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="images/ImageGaurav.jpg" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Gaurav Tiwari</h2>
+        </div>
+        <div className="back from-bottom">
+          <h2>Gaurav Tiwari</h2>
+          <h3>Techincal Head</h3>
+          <div className="card-social-icon center">
+            <li>
+              <a href="https://github.com/gtiwari912/" target="_blank"><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href=" https://www.linkedin.com/in/gauravtiwaricoder/" target="_blank"><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href="https://instagram.com/gaurav_tiwari_7" target="_blank"><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    {/* Om Bhamare */}
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Om Bhamare</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Om Bhamare</h2>
+          <h3>Techincal Assistent</h3>
+          <div className="card-social-icon center">
+            <li>
+              <a href="https://github.com/ombhamare4" target="_blank"><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/om-bhamare-3912b21b8/" target="_blank"><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    {/* Rutuja Abahng */}
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="images/ImageRutuja.JPG" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Rutuja Abhang</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Rutuja Abhang</h2>
+          <h3>Techincal Assistent</h3>
+          <div className="card-social-icon center">
+            {/* <li>
+          <a href=""
+            ><i class="fab fa-github text-white icons"></i
+          ></a>
+        </li> */}
+            <li>
+              <a href="https://www.linkedin.com/in/rutuja-abhang-58a05b1b8/" target="_blank"><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/____rabhang71____/" target="_blank"><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    {/* Nirmit Patil */}
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{/* <p>desgin team</p> */}
+<div className="teamTitle">
+  <h2 className="headTitle">Design Team</h2>
+  <div className="teamMembersContainer">
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="images/ImageBhakti.jpg" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Bhakti Bailurkar</h2>
+        </div>
+        <div className="back from-bottom">
+          <h2>Bhakti Bailurkar</h2>
+          <h3>Design Head</h3>
+          <div className="card-social-icon center">
+            <li>
+              <a href="https://github.com/BhaktidB" target="_blank"><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/bhakti-bailurkar-0a89b01b0/" target="_blank"><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{/* <p>Sponser team</p> */}
+<div className="teamTitle">
+  <h2 className="headTitle">Sponser Team</h2>
+  <div className="teamMembersContainer">
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{/* Orientation team */}
+<div className="teamTitle">
+  <h2 className="headTitle">Orientation Team</h2>
+  <div className="teamMembersContainer">
+    {/* Shweta Mali */}
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="images/ImageShweta.jpg" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Shweta Mali</h2>
+        </div>
+        <div className="back from-bottom">
+          <h2>Shweta Mali</h2>
+          <h3>Orientation Head</h3>
+          <div className="card-social-icon center">
+            {/* <li>
+            <a href=""
+              ><i class="fab fa-github text-white icons"></i
+            ></a>
+          </li> */}
+            <li>
+              <a href="https://www.linkedin.com/in/shweta-mali-280141246" target="_blank"><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/shwetamali1209?r=nametag" target="_blank"><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="card">
+      <div className="content">
+        <div className="front">
+          <img src="su.png" className="profile" />
+          <h2 style={{marginTop: '10px'}}>Sudhanshu Diwedi</h2>
+        </div>
+        <div className="back from-right">
+          <h2>Sudhanshu Diwedi</h2>
+          <h3>Techincal Head</h3>
+          <p>Web Developer</p>
+          <div className="card-social-icon center">
+            <li>
+              <a href><i className="fab fa-github text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-linkedin text-white icons" /></a>
+            </li>
+            <li>
+              <a href><i className="fab fa-instagram text-white icons" /></a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

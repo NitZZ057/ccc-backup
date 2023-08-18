@@ -1,0 +1,173 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+a {
+  color: #832eab;
+}
+
+.text-violet {
+  border-bottom: 10px solid;
+  border-color: #832eab;
+}
+
+.text-green {
+  border-bottom: 10px solid;
+  border-color: #5eab2e;
+}
+
+.text-red {
+  border-bottom: 10px solid;
+  border-color: #e80f0f;
+}
+
+.container1 {
+  /* padding: 50px; */
+  /* min-height: 700px; */
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+}
+
+.comming-soon {
+  margin-top: 10px;
+}
+
+.event-hero {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  align-items: center;
+}
+
+.event-hero img {
+  position: absolute;
+  left: 40%;
+  right: 0;
+  z-index: -1;
+}
+
+.event-hero .hero-title {
+  padding: 40px;
+}
+
+.event-hero h1 {
+  position: relative;
+  font-size: 5rem;
+  font-weight: 800;
+}
+
+.hero-form {
+  margin-top: 5rem;
+}
+
+.hero_email {
+  border: none;
+  padding: 1rem 2rem;
+  width: 75%;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
+  color: #832eab;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #832eab;
+  opacity: 0.5; /* Firefox */
+}
+.hero_button {
+  border: none;
+  width: 25%;
+  padding: 1rem 0rem;
+  background-color: #832eab;
+  color: white;
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.event_mid1 {
+  background-color: #292929;
+  color: #832eab;
+  display: flex;
+  padding: 50px;
+  justify-content: space-around;
+  align-items: center;
+  
+  flex-wrap: wrap;
+}
+
+.event_mid1 div {
+  display: flex;
+}
+
+.event_mid1 div div {
+  display: block;
+  color: #832eab;
+}
+.event_icon {
+  margin-right: 30px;
+}
+
+.ion1 {
+  width: 97px;
+  height: 79px;
+}
+.ion2 {
+  width: 86px;
+  height: 71px;
+}
+.ion3 {
+  width: 79px;
+  height: 80px;
+}
+.event_mid1 div div h2 {
+  color: #832eab;
+  font-weight: 800;
+  font-size: 2rem;
+  text-align: center;
+}
+
+@media all and (max-width: 1366px) {
+  .container1 {
+    margin-top: 160px;
+  }
+  .event-hero img {
+    left: 35%;
+  }
+  .event-hero h1 {
+    font-size: 4rem;
+  }
+  .hero-form {
+    margin-top: 3rem;
+  }
+  .hero_email {
+    padding: 1rem 2rem;
+    width: 75%;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .event-hero {
+    position: relative;
+  }
+  .event-hero img {
+    /* left: 30%; */
+    display: none;
+  }
+  .event-hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero-form {
+    margin-top: 3rem;
+  }
+  .hero_email {
+    padding: 1rem 2rem;
+    width: 75%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .container1 {
+    padding: 10px;
+    min-height: 700px;
+  }
+}

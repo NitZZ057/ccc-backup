@@ -1,0 +1,72 @@
+.backgroundTop {
+  /* background: url("../assests/registerform.jpg"); */
+  background-position: center;
+  background-size: cover;
+}
+
+.div-form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-card {
+  /* margin: 0 auto; */
+  width: 50%;
+  /* border: 1px solid #f9214a; */
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(8, 1, 1, 0.228);
+  /* margin: 1px; */
+}
+
+.input-flex {
+  display: flex;
+}
+
+.form-inputs {
+  border: 0;
+  border-bottom: 1px solid #f9214a;
+  background: transparent;
+  color: #fff;
+  font-size: 30px;
+  transition: all 0.5s cubic-bezier(0.4, 0.25, 0.8, 0.3);
+  width: 100%;
+}
+
+input::selection {
+  background: rgba(#f9214a, 0.25);
+}
+
+@media all and (max-width: 700px) {
+  .form-card {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .form-card {
+    width: 80%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .input-flex {
+    display: block;
+  }
+}
+
+.closeButton {
+  border: none;
+  background: transparent;
+  color: rgb(183, 25, 25);
+  font-size: 30px;
+}
+
+.addBtn {
+  border: none;
+  background: transparent;
+  color: rgb(183, 25, 25);
+  font-size: 40px;
+  width: 100%;
+}
