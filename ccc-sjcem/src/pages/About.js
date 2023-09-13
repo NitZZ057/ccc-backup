@@ -2,13 +2,12 @@ import { TypeAnimation } from "react-type-animation";
 
 //components
 import CoreTeam from "../components/TeamInfo/CoreTeam";
-import OurTeam from "../components/TeamInfo/OurTeam";
 import Layout from "../components/Layout";
 
 //css asdjasidjaskdjd
 import "../css/about.css";
 
-import teachVideo from "../assests/aboutvideo.mp4";
+// import teachVideo from "../assests/aboutvideo.mp4";
 
 const AboutPage = () => {
   return (
@@ -23,7 +22,7 @@ const AboutPage = () => {
               plays-inline="true"
               className="back-video"
             >
-              <source src={teachVideo} />
+              {/* <source src={teachVideo} /> */}
             </video>
             {/* Core Team */}
             <div className="d-flex justify-content-center flex-wrap">
@@ -54,9 +53,6 @@ const AboutPage = () => {
             </div>
             <div className="team-wrapper">
               <CoreTeam />
-            </div>
-            <div className="team-wrapper">
-              <OurTeam/>
             </div>
           </div>
         </div>

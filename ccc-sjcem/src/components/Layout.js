@@ -1,51 +1,90 @@
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from '../context/auth'
 
 import { FaDiscord, FaLinkedin, FaInstagram } from "react-icons/fa";
-
-//Image Import
-import group2 from "../assests/Group 2.png";
 
 const Layout = (props) => {
   const date = new Date();
   const currentYear = date.getFullYear();
+
+  const [auth, setAuth] = useAuth();
+  const menu = useRef(null);
+  const navbar = useRef(null);
+  const cross = useRef(null);
+
+  const handleLogOut = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: ""
+    });
+    localStorage.removeItem("auth");
+  }
+
+  const showMenu = () => {
+    navbar.current.style.display = "flex";
+    menu.current.style.display = "none";
+  }
+
+  const hideMenu = () => {
+    navbar.current.style.display = "none";
+    menu.current.style.display = "flex";
+  }
+
   return (
     <div>
       <div className="bottomSetter">
         <div className="top-wrapper">
-          <div className="navBar">
-            <div className="navflex2">
+          <div ref={menu} className="menu-div">
+            <div>
+              <img src='/images/logo.png' className="navBarImage" alt="CCCLogo" />
+            </div>
+            <img   onClick={showMenu} className="menu" src="/images/menu.png" /></div>
+          <div ref={navbar} className="navBar">
+            <img onClick={hideMenu} className="cross" src='/images/xw.png'/>
+            <div className="navflex2 nav-lf">
               <NavLink to="/">
-                <div className="navBarButtons">
+                <div className="">
                   <div>
-                    <img src='/images/ccclogo.png' className="navBarImage" alt="CCCLogo" />
+                    <img src='/images/logo.png' className="navBarImage ccc-logo" alt="CCCLogo" />
                   </div>
                 </div>
               </NavLink>
-              <NavLink to="/" title="home">
-                <div className="navBarButtons">
-                    Home
+
+              {/* <NavLink to="/" title="ccc">
+                <div className="navBarButtons ccc" >
+                  CCC
                 </div>
-              </NavLink>
-              <NavLink to="/about" title="Hall of fame">
+              </NavLink>  */}
+
+              {/* <NavLink to="/" title="home">
                 <div className="navBarButtons">
-                    Hall of Fame
+                  Home
                 </div>
-              </NavLink>
-              <NavLink to="/events" title="events">
+              </NavLink> */}
+
+              
+              
+              {/* <NavLink to="/events" title="events">
                 <div className="navBarButtons">
-                    Events
+                  Events
                 </div>
-              </NavLink>
-              <NavLink to="/" title="team">
+              </NavLink> */}
+
+
+              {/* <NavLink to="/about" title="team">
                 <div className="navBarButtons" >
-                    Team
+                  Team
                 </div>
-              </NavLink>
-              <NavLink to="/about" title="about">
+              </NavLink> */}
+
+
+              {/* <NavLink to="/about" title="about">
                 <div className="navBarButtons">
-                    About
+                  About
                 </div>
-              </NavLink>
+              </NavLink> */}
 
 
 
@@ -53,29 +92,83 @@ const Layout = (props) => {
 
             </div>
 
-            <div className="navflex2">
+            <div className="navflex2 nav-mid">
+            {/* <NavLink to="/">
+                <div className="navBarButtons">
+                  <div>
+                    <img src='/images/logo.png' className="navBarImage ccc-logo" alt="CCCLogo" />
+                  </div>
+                </div>
+              </NavLink>
               <NavLink to="/" title="ccc">
                 <div className="navBarButtons ccc" >
-                    CCC
+                  CCC
                 </div>
-              </NavLink>
+              </NavLink> */}
+              
+              
 
             </div>
-            <div className="navflex2">
-              <NavLink to="/potd" title="potd">
-                POTD<img className="potd-icon" src="/images/potd.png" alt="potd" />
-              </NavLink>
 
-              <NavLink to="/" title="sign up">
-                <div className="navBarButtons login" >
-                    Sign Up
+
+            <div className="navflex2">
+            <NavLink to="/" title="home">
+                <div className="navBarButtons">
+                  Home
                 </div>
               </NavLink>
-              <NavLink to="/" title="login">
-                <div className="navBarButtons login" title="login">
-                    Login
+              <NavLink to="/hall-of-fame" title="Hall of fame">
+                <div className="navBarButtons">
+                  Hall of Fame
                 </div>
               </NavLink>
+              {/* <NavLink to="/about" title="team">
+                <div className="navBarButtons" >
+                  Team
+                </div>
+              </NavLink> */}
+              <NavLink to="/potd" title="potd">
+                <div className="navBarButtons">
+                  POTD
+                </div>
+                </NavLink>
+                {/* <img className="potd-icon" src="/images/potd.png" alt="potd" /> */}
+              
+              {
+                auth?.user?.role == 1 ? <>
+                  <NavLink to="/admin/dashboard" title="login">
+                    <div className="navBarButtons login" title="login">
+                      Dashboard
+                    </div>
+                  </NavLink>
+                </> : <></>
+              }
+              {
+                !auth.user ? (
+                  <NavLink to="/protected/login" title="login">
+                    <div className="navBarButtons login" title="login">
+                      Login
+                    </div>
+                  </NavLink>
+                ) : (
+                  <NavLink to="/" onClick={handleLogOut} title="sign up">
+                    <div className="navBarButtons login" >
+                      Logout
+                    </div>
+                  </NavLink>
+
+                )
+              }
+
+              {/* {isAuthenticated && (
+                <div>
+                  <h2>{user.name}</h2>
+                  <p>{user.email}</p>
+                </div>
+              )} */}
+
+
+
 
             </div>
           </div>
@@ -89,6 +182,7 @@ const Layout = (props) => {
           </div> */}
         </div>
       </div>
+
       <div className="children">{props.children}</div>
       <footer>
         <div>
@@ -96,7 +190,7 @@ const Layout = (props) => {
           <br />
           <br />
           <div className="flex">
-            <img src={group2} className="footerLogo" alt="cccLogo" />
+            {/* <img src="\images\logo.png" className="footerLogo1" alt="cccLogo" /> */}
             <a
               href="https://instagram.com/ccc_sjcem?igshid=YmMyMTA2M2Y="
               title="Instagram"
@@ -106,7 +200,7 @@ const Layout = (props) => {
               <FaInstagram className="footerLogo" />
             </a>
             <a
-              href="https://discord.gg/tx6ddyPEud"
+              href="https://discord.gg/9H2QQvqSpp"
               title="Discord"
               target="_blank"
               rel="noopener noreferrer"
@@ -128,7 +222,7 @@ const Layout = (props) => {
           Club. All rights reserved.
         </div>
         <div>
-          <p>Web Developed By Om Bhamare & Saurabh Thakur</p>
+          <p>Developed By Web Development team... CCC!!</p>
         </div>
       </footer>
 

@@ -1,0 +1,59 @@
+
+
+.photoInput{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.que-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    color: black;
+    gap: 1rem;
+}
+
+.que-heading{
+    color: #0b236b;
+}
+
+.form-container{
+    min-width: 400px;
+    margin: 4%;
+    padding: 3%;
+    background: white;
+}
+
+input{
+    margin: 1%;
+    width:100%;
+}
+
+label{
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.que-btn{
+    background: #0b236b;
+    padding: 2px 25px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.que-btn:active{
+    background: white;
+    color: #0b236b;
+}

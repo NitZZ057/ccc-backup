@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
 
 *,
 *:before,
@@ -32,11 +33,11 @@ body {
 }
 
 ::selection {
-  background: #121212;
+  background: #0cfbeb;
 }
 
 ::-moz-selection {
-  background: #121212;
+  background: #0cfbeb;
 }
 
 h2 {
@@ -47,6 +48,16 @@ h2 {
   font-style: normal;
   margin-top: 0;
   margin-bottom: 15px;
+}
+
+.nav-lf{
+  margin-block: 0.9%;
+}
+
+.ccc-logo{
+  /* margin-block: 15%; */
+  margin-inline: 15%;
+  width:50px;
 }
 
 h3 {
@@ -76,7 +87,8 @@ a {
 
 .top-container {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  background: white;
   /* background-image: url("../assests/bg ccc.png"); */
   background-size: cover;
   background-attachment: fixed;
@@ -86,16 +98,20 @@ a {
   /* -moz-box-shadow: 0 0 10px #121212;
   -webkit-box-shadow: 0 0 10px #121212;
   box-shadow: 0 0 10px #121212; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-carousel{
   width: 100%;
   height: 100%;
-  padding: 3% 10%;
+  padding: 3% 5%;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .home-carousel img{
@@ -116,8 +132,9 @@ section,
 
 .navBar {
   width: 100%;
-  /* background: #440196; */
-  background-image: linear-gradient(to right, #3d0385, #3241a4);
+  /* background: #0b236b;; */
+  background-image: linear-gradient(90deg, #009FFD ,#2A2A72
+  );
   display: flex;
   /* position: fixed; */
   /* top: 0; */
@@ -125,12 +142,17 @@ section,
   text-align: center;
   align-items: center;
   box-sizing: content-box;
+  /* box-shadow: 0 0 15px #434242; */
   z-index: 100;
-  /* margin-bottom: 200px; */
+  /* margin-bottom: 7px; */
 }
 
+
+  
+
 .navBar:hover {
-  background-image: linear-gradient(to right, #3d0385, #3241a4);
+  background: #183fb6;;
+  /* background-image: linear-gradient(to right, #191970, #3241a4); */
 }
 
 .navflex2{
@@ -138,6 +160,7 @@ section,
   justify-content: space-between;
   align-items: center;
 }
+
 
 
 .leader-board{
@@ -215,8 +238,9 @@ footer {
 .footerText {
   color: #e2e2e2;
   font-family: "Raleway", sans-serif;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 500 bolder;
+
 }
 
 .footerLogo {
@@ -224,6 +248,10 @@ footer {
   margin-right: 10px;
   color: white;
   font-size: 30px;
+  margin-left: 1%;
+}
+.footerLogo:hover{
+  color: orange;
 }
 
 /* .bottomSetter {
@@ -276,17 +304,24 @@ footer {
   .headerContainerImage {
     width: 300px;
   }
-  .top-container {
-    height: 700px;
-  }
 }
+
+
 
 .navBarButtons {
   /* min-width: 100px; */
   /* font-weight: 900; */
-  padding: 0 20px;
+  /* padding: 0 20px; */
+  margin-inline: 20px;
   text-align: center;
   display: inline-block;
+  font-weight: bolder;
+  font-size: 16px;
+  font-family: sans-serif ;
+  
+}
+.navBarButtons:hover{
+  border-bottom: 3px solid white;
 }
 
 .navBarButtons2 {
@@ -298,16 +333,15 @@ footer {
   flex-direction: column;
 }
 
-.login{
-  /* margin-right: -20%; */
-}
+
 
 .ccc{
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 900;
-  margin-left: -200%;
-  font-family: Handjet;
+  margin-left:-25%;
+  font-family: Libre;
   letter-spacing:0.3cm;
+  /* Libre+Baskerville:ital */
 }
 
 .navBarImage {
@@ -334,6 +368,11 @@ footer {
   color: #fff;
 } */
 
+.menu{
+  width: 50px;
+  display: none;
+}
+
 @media all and (max-width: 1000px) {
   .navBarButtons {
     min-width: 25%;
@@ -342,7 +381,7 @@ footer {
 
 @media all and (max-width: 700px) {
   .navBarImage {
-    width: 17.5px;
+    width: 60px;
   }
 }
 
@@ -496,7 +535,7 @@ footer {
 }
 
 #firstImage {
-  width: 50%;
+  width: 65%;
 }
 
 #secondImage {
@@ -544,14 +583,14 @@ td {
   /* margin-top: 85px; */
 }
 @media all and (max-width: 1000px) {
-  .children {
+  /* .children {
     margin-top: 140px;
-  }
+  } */
 }
 
 @media all and (max-width: 700px) {
   .children {
-    margin-top: 120px;
+    /* margin-top: 120px; */
   }
 }
 
@@ -571,4 +610,75 @@ td {
 .home-group-image2{
   border-radius: 50%;
   width: 30%;
+}
+
+.mobile{
+  display: none;
+}
+
+.menu-div{
+  display: none;
+}
+
+.cross{
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .navBar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .navflex2{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .test{
+    flex-direction: column;
+    
+  }
+
+  /* .home-carousel{
+    display: none;
+  } */
+
+  .mobile{
+    display: block;
+    color: #0b236b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+  }
+
+  .test-container,.img-container{
+    width: 100%;
+  }
+.menu-div{
+  display: flex;
+  justify-content: space-between;
+}
+  .menu{
+    display: block;
+  }
+
+  .cross{
+    display: block;
+    width: 60px;
+    margin: 2%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .menu:hover,.cross:hover{
+    cursor: pointer;
+  }
 }

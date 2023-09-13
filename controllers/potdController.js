@@ -6,232 +6,181 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 import path from 'path';
-import { spawn } from 'child_process';
-import { createWriteStream } from 'fs';
-import { pipeline } from 'stream';
-import { createReadStream } from 'fs';
-import { createInterface } from 'readline';
-import { createServer } from 'http';
-import { createSecureServer } from 'http2';
-import { createServer as createServerHttps } from 'https';
-import { createServer as createServerHttp } from 'http';
-import { createServer as createServerHttp2 } from 'http2';
+
+import userModel from "../models/userModel.js";
+import { response } from "express";
+import questionModel from "../models/questionModel.js";
+import imageModel from "../models/imageModel.js";
 
 const execAsync = promisify(exec);
 const writeFileAsync = promisify(writeFile);
 
 
 
-export const cppController = async (req, res) => {
-    try {
-
-        const { code, language } = req.body;
-        const fileName = uuidv4();
-        const __dirname = path.dirname(fileName);
-        const filePath = resolve(`./temp/${fileName}.cpp`);
-
-        const finalCode = `
-#include <iostream>
-using namespace std;
-${code}
-int main() {
-    int i = 0;
-    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
-    while(i<10){
-        int a = arr[i];
-        int b = arr[i+1];
-        int c = sum(a,b);
-        cout<<c<<endl;
-        i=i+2;
-    }
-    return 0;
-}
-        `;
-
-
-        await writeFileAsync(filePath, finalCode);
-
-        let result = '';
-        const output = '3\r\n7\r\n11\r\n15\r\n19\r\n'
-
-        if (language === 'c++') {
-            // Compile and execute C++ code
-            const compileCmd = `g++ ${filePath} -o ${fileName}`;
-            await execAsync(compileCmd);
-            const executablePath = resolve(__dirname, `./${fileName}.exe`);
-
-            const { stdout, stderr } = await execAsync(`${executablePath}`);
-            //delete exe file
-            result = stdout || stderr;
-            await execAsync(`del ${fileName}.exe`);
-            await execAsync(`cd temp && del ${fileName}.cpp`);
-
-        }
-
-        if (result == output) {
-            return res.status(200).send({
-                success: true,
-                result: result,
-                passed: true
-            });
-        } else {
-            return res.status(200).send({
-                success: true,
-                result: result,
-                passed: false
-            });
-        }
-
-
-    } catch (error) {
-        return res.status(200).send({
-            success: false,
-            message: "error in compilation",
-            error
-        })
-    }
-
-}
-
-export const javaController = async (req, res) => {
-    try {
-        const { code, language } = req.body;
-        const fileName = 'Main';
-        const __dirname = path.dirname(fileName);
-        const filePath = resolve(`./temp/${fileName}.java`);
-
-        const finalCode = `
-        import java.util.*;
-
-        public class Main {
-            ${code}
-            public static void main(String[] args) {
-                int i = 0;
-                int arr[] = new int[]{ 1,2,3,4,5,6,7,8,9,10 };
-                while(i<10){
-                    int a = arr[i];
-                    int b = arr[i+1];
-                    int c = sum(a,b);
-                    System.out.println(c);
-                    i=i+2;
-                }
-              
-            }
-        }`;
-
-
-        await writeFileAsync(filePath, finalCode);
-
-        let result = '';
-        const output = '3\r\n7\r\n11\r\n15\r\n19\r\n';
-
-        if (language === 'java') {
-            // Compile and execute java code
-            const compileCmd = `javac ${filePath}`;
-            await execAsync(compileCmd);
-            const executablePath = resolve(__dirname, `./temp ${fileName}`);
-
-            const { stdout, stderr } = await execAsync(`java -cp ${executablePath}`);
-            //delete class file
-            result = stdout || stderr;
-            await execAsync(`cd temp && del ${fileName}.java`);
-            await execAsync(`cd temp && del ${fileName}.class`);
-
-        }
-
-        if (result == output) {
-            return res.status(200).send({
-                success: true,
-                result: result,
-                passed: true
-            });
-        } else {
-            return res.status(200).send({
-                success: true,
-                result: result,
-                passed: false
-            });
-        }
-
-
-    } catch (error) {
-        return res.status(200).send({
-            success: false,
-            message: "error in compilation",
-            error
-        })
-    }
-
-}
-
-export const pyController = async (req, res) => {
-    try {
-        const { code, language } = req.body;
-        const fileName = uuidv4();
-        const __dirname = path.dirname(fileName);
-        const filePath = resolve(`./temp/${fileName}.py`);
-
-        const finalCode = `
-${code}
-number = 1
-
-while number <= 10:
-    print(add_num(number,number+1))
-    number += 2
-        `;
-
-
-        await writeFileAsync(filePath, finalCode);
-
-        let result = '';
-        const output = '3\r\n7\r\n11\r\n15\r\n19\r\n';
-
-        if (language === 'python') {
-            // Execute Python code
-            const { stdout, stderr } = await execAsync(`python ./temp/${fileName}.py`);
-            result = stdout || stderr;
-            await execAsync(`cd temp && del ${fileName}.py`);
-        }
-
-        if (result == output) {
-            return res.status(200).send({
-                success: true,
-                result: result,
-                passed: true
-            });
-        } else {
-            return res.status(200).send({
-                success: true,
-                result: result,
-                passed: false
-            });
-        }
-
-
-    } catch (error) {
-        return res.status(200).send({
-            success: false,
-            message: "error in compilation",
-            error
-        })
-    }
-
-}
 
 export const jdoodleController = async (req, res) => {
     try {
-        const { apiUrl, requestData } = req.body;
-        const response = await axios.post(apiUrl, requestData);
+        //check credits
+        const creditData = {
+            clientId: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+        };
+        const credits = await axios.post(`https://api.jdoodle.com/v1/credit-spent`,creditData);
+        console.log(credits.data);
+
+        const creditData1 = {
+            clientId: process.env.CLIENT_ID_1,
+            clientSecret: process.env.CLIENT_SECRET_1,
+        };
+        const credits1 = await axios.post(`https://api.jdoodle.com/v1/credit-spent`,creditData1);
+        console.log(credits1.data);
+
+        let clientId = ''
+        let clientSecret = ''
+
+        //switch accounts
+        if(credits.data.used < 200){
+           clientId = process.env.CLIENT_ID;
+            clientSecret = process.env.CLIENT_SECRET;
+        }else if(credits1.data.used < 200){
+            clientId = process.env.CLIENT_ID_1;
+            clientSecret = process.env.CLIENT_SECRET_1;
+        }
+        else{
+            clientId = process.env.CLIENT_ID_2;
+            clientSecret = process.env.CLIENT_SECRET_2;
+        }
+
+        const { code,language,id,stdin,output } = req.body;
+
+        const requestData = {
+            script: code,
+            language: language,
+            versionIndex: '3',
+            stdin: stdin,
+            clientId: clientId,
+            clientSecret: clientSecret,
+        };
+
+        
+
+        let passed = false;
+
+        
+
+        const response = await axios.post(`https://api.jdoodle.com/v1/execute`, requestData);
+
+        console.log(response.data.output.trim(),output.trim())
+        
+        if(response.data.output.trim() == output.trim()){
+            passed = true;
+            const user = await userModel.findById(id);
+            if(user.solved == 0){
+                user.score += 10;
+                user.solved = 1;
+                await user.save();
+            }else{
+                return res.status(200).send({
+                    success: true,
+                    passed:false,
+                    message:'You have solved this question already'
+                });
+            }
+            // const user = await userModel.findByIdAndUpdate(id, {$inc:{score : 10}}, { new: true });
+        }
+
+        
+        
         return res.status(200).send({
             success: true,
-            data: response.data
+            data: response.data,
+            passed: passed,
+            output: response.data.output
         });
     } catch (error) {
-        console.log(error.response)
+        console.log(error)
         return res.status(200).send({
             success: false,
             message: "error in compilation",
             error
+        })
+    }
+}
+
+// export const jdoodleController = async (req, res) => {
+//     try {
+//         const { config } = req.body;
+//         console.log(config)
+//         const response = await axios.post(config.url, config.data);
+//         return res.status(200).send({
+//             success: true,
+//             data: response.data
+//         });
+//     } catch (error) {
+//         console.log(error.response)
+//         return res.status(200).send({
+//             success: false,
+//             message: "error in compilation",
+//             error
+//         })
+//     }
+// }
+
+export const getWinnersController = async (req,res) =>{
+    try {
+        const winners = await userModel.find({role:{$ne:1}}).sort({score:-1, updatedAt: 1}).limit(10);
+
+        if(!winners){
+            return res.status(404).send({
+                success:false,
+                message:'No user found'
+            })
+        }
+
+        return res.status(200).send({
+            success:true,
+            winners:winners
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            success:false,
+            message:'error in getting weekly winners'
+        })
+    }
+}
+
+export const getArgsController = async (req,res) =>{
+    try {
+        
+        const args = await imageModel.find({});
+        return res.status(200).send({
+            success:true,
+            testcase:args[0].testcase,
+            output:args[0].output
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            success:false,
+            message:'error in getting weekly winners'
+        })
+    }
+}
+
+export const getPhotoController = async (req,res) =>{
+    try {
+        const questions = await questionModel.find({})
+
+        return res.status(200).send({
+            success:true,
+            questions:questions
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            success:false,
+            message:'error in getting weekly winners'
         })
     }
 }

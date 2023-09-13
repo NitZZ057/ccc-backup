@@ -79,18 +79,34 @@ align-items: center;
     font-size: 30px;
     font-weight: 800;
 }
+.potd-question{
+    width: 100%;
+}
 
 .potd-question-title{
+    width: 100%;
+}
+.potd-question-title>h2{
     color: #3241a4;
     font-size: 25px;
     font-weight: 600;
-    margin: 2%;
 }
 
 .potd-input{
     margin-block: 3%;
     width: 100%;
+
 }
+
+.login-div{
+    padding: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 .theme-lang{
     width: 100%;
@@ -147,7 +163,69 @@ align-items: center;
 .error{
     color: red;
 }
+.score-div{
+    color: #3241a4;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.btn{
+    background-color: darkcyan; /* Green */
+    border: 3px solid black;
+    color: white;
+    padding: 30% 30%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin:auto
+  }
+  .btn:hover{
+    background-color: darkcyan; /* Green */
+    border: 3px solid black;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    
+  }
 
+  .potd-ln{
+    color: aliceblue;
+  }
 
+  @media screen and (max-width: 700px) {
+    .winner-title{
+        font-size: 20px;
+        border-radius: 10px;
+    }
+    .winner{
+        font-size: 15px;
+    }
+
+    .tb{
+        width: 20%;
+        margin: 3%;
+        text-align: center;
+        background-color: white;
+        color: #3241a4;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+
+    .score-div{
+        font-size: 20px;
+    }
+
+    .potd-title{
+        font-size: 20px;
+        border-radius: 10px;
+    }
+
+    .potd-question-title>h2{
+        font-size: 15px;
+        margin-block: 4%;
+    }
+  }
+  
 
 

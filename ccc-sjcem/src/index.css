@@ -13,6 +13,7 @@ body {
     
     /* overflow-x: hidden; */
     /* overflow: hidden; */
+    /* -----0b236b------bf9f2b */
 }
 
 ::-webkit-scrollbar {
@@ -26,7 +27,7 @@ body {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:  #1E2F97;
+  background: #0b236b;
   /* background: #832eab;  */
 }
 

@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.login-page{
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: rgb(63, 63, 242); */
+}
+
+.login-container{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 5%;
+    gap: 1rem;
+}
+
+.error-div{
+    color: red;
+}
+
+.sign-in-div{
+    width: 40%;
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    border-radius: 7px;
+}
+
+.sign-up-div{
+    width: 40%;
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+}
+
+.btn{
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    background: rgb(34, 34, 234);
+}
+
+.sign-in,.sign-up{
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    cursor: pointer;
+    /* background: #0b236b; */
+    /* color: white; */
+    color:black;
+    padding: 2px 25px;
+    border-radius: 5px;
+    margin: 3%;
+    text-align: center;
+    
+
+}
+
+.reset-pass{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    cursor: pointer;
+    /* background: #0b236b; */
+    /* color: white; */
+    color:black;
+    padding: 2px 25px;
+    border-radius: 5px;
+    margin: 3%;
+    text-align: center;
+}
+.sign-in:hover,.sign-up:hover{
+    background: white;
+    color: #0b236b;
+    
+
+}
+
+.sign-form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 1rem;
+    transition: all 0.5s ease-in-out;
+}
+
+input{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.form-control{
+    width: 40%;
+    border-radius: 10px;
+    margin-top: px;
+    margin-left: 10px;
+}
+
+.sign-up-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .login-container,.login-header{
+        flex-direction: column;
+    }
+
+    .sign-in-div,.sign-up-div{
+        width: 100%;
+        margin: 5%;
+        
+    }
+}
+    
+

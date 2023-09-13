@@ -8,12 +8,18 @@ import "./css/about.css";
 
 //Pages
 import HomePage from "./pages/Home";
-import AboutPage from "./pages/About";
-import EventPage from "./pages/Events";
+import ProtectedRoute from "./components/Routes/ProtectedRoute";
+import AdminRoute from "./components/Routes/AdminRoutes";
+import Login from './pages/Auth/Login'
 import Potd from "./pages/Potd";
-import HackethonIdeathonReg from "./components/Events/HackethonIdeathonReg";
-import VerifyPayPage from "./pages/VerifyPay";
-import RegisterHackethon from "./components/Events/RegisterHackethon";
+import DashBoard from "./pages/Admin/DashBoard";
+import QuestionForm from "./pages/Admin/QuestionForm";
+import EventForm from "./pages/Admin/EventForm";
+import Pnf from "./pages/Pnf";
+import Signup from "./pages/Auth/Signup";
+import HallOfFame from "./pages/HallOfFame";
+import ForgotPassword from "./pages/Auth/ForgotPassword";
+import ResetPassword from "./pages/Auth/ResetPassword";
 
 function App() {
   useEffect(() => {
@@ -23,13 +29,22 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/events" element={<EventPage />} />
+        {/* <Route path="/about" element={<AboutPage />} /> */}
+        {/* <Route path="/events" element={<EventPage />} /> */}
+        <Route path="/hall-of-fame" element={<HallOfFame />} />
+        <Route path="/protected" element={<ProtectedRoute />} >
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="reset-password/:id" element={<ResetPassword />} />
+        </Route>
+        <Route path="/admin" element={<AdminRoute />} >
+          <Route path="dashboard" element={<DashBoard />} />
+          <Route path="add-que" element={<QuestionForm />} />
+          <Route path="add-event" element={<EventForm />} />
+        </Route>
         <Route path="/potd" element={<Potd />} />
-        <Route path="/events/register" element={<HackethonIdeathonReg />} />
-        <Route path="/events/register/hackethon" element={<RegisterHackethon />} />
-        {/* <Route path="/events/register/ideathon" element={<HackethonIdeathonReg />} /> */}
-        <Route path="/events/verifyandpayment" element={<VerifyPayPage />} />
+        <Route path="/*" element={<Pnf />} />
         {/* </Route> */}
       </Routes>
     </div>

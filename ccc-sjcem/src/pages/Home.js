@@ -1,36 +1,75 @@
 //Components
-import React, { useState,useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Layout from "../components/Layout";
 import LeaderBoard from "../components/POTD/LeaderBoard";
+import { useAuth } from '../context/auth'
+import axios from "axios";
 
 //Image Import
 // import image3 from "../assests/image3.png";
 // import image2 from "../assests/image2.png";
-import image3 from "../assests/cccteam1.jpg";
 
 const HomePage = () => {
+  const [auth, setAuth] = useAuth();
+
+  // const [imge,setImg] = useState(null)
+
+
+  // var imgarr=imge==null?'':imge.map(data=>{
+  //  return data.img
+  // })
+
+  //----
+  const [img, setImg] = useState([{}])
+  const [len,setLen] = useState(0)
   const images = [
     '/images/ccc-poster.jpg',
     '/images/registerform1.jpg',
     '/images/ccc1.jpg',
   ];
 
+  // var imgarr=imge==null?'':imge.map(data=>{
+  //   return data.img
+  // })
+
+  //>>>>>>> main
+
   const [index, setIndex] = useState(0);
   const carouselImg = useRef(null)
 
 
   const handlePrev = () => {
-    setIndex((index+1)%images.length)
-    };
-  
+
+    // setIndex((index+1)%imgarr.length)
+    if(index!=0 && index>=(len-1)){
+      setIndex(0)
+    }else{
+      setIndex(index+1)
+    }
+
+  };
+
 
 
   React.useEffect(() => {
     const interval = setInterval(handlePrev, 5000);
     return () => clearInterval(interval);
-    // eslint-disable-next-line
   }, [index]);
 
+  useEffect(() => {
+    getImg()
+  }, [])
+
+  const getImg = async () => {
+    try {
+      const res = await axios.get('/api/v1/event/getEventImg')
+      setImg(res.data.images)
+      setLen(res.data.images.length)
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
 
   return (
@@ -38,7 +77,7 @@ const HomePage = () => {
       <Layout>
         <div className="top-container">
           {/* <div className="headerContainer">
-            <img
+            <img  ----aayush code----
               src={ccc}
               className="headerContainerImage"
               data-aos="fade-up"
@@ -46,21 +85,27 @@ const HomePage = () => {
             />
           </div> */}
           <div className="home-carousel">
-            <img ref={carouselImg} className="carousel-img" src={images[index]} alt="img"/>
+
+            <img className="carousel-img" src={img.length > 0? img[index]?.image:''} alt="img" width={'100%'} />
+            {/* <img className="carousel-img" src={images[index]} alt="img" /> */}
+
           </div>
+          {/* <div className="mobile">
+            Open in web for better experience
+          </div> */}
         </div>
         <section>
           <div className="leader-board">
-            <LeaderBoard/>
+            <LeaderBoard />
           </div>
         </section>
         <section className="test">
           <div className="test-container">
             <h1 className="title">
-            Our motivation
+              Our Motivation
             </h1>
             <p>
-            As a competitive programmer you will acquire the ability to think
+              As a competitive programmer you will acquire the ability to think
               critically, attain good debugging skills, learn a vast knowledge
               of algorithms and ipso facto the skills to crack algorithmic
               interviews which are all essential to computer science students.
@@ -72,12 +117,16 @@ const HomePage = () => {
             </p>
           </div>
           <div className="img-container">
-          <img
-                src={image3}
-                id="firstImage"
-                alt="firstImage"
-                className="home-group"
-              />
+            <img
+              src="/images/logo.png"
+              id="firstImage"
+              alt="firstImage"
+              className="home-group"
+            />
+            <img
+              src="/images/ccc1.png"
+              alt="image"
+            />
           </div>
         </section>
         {/* <section>
@@ -169,7 +218,10 @@ const HomePage = () => {
             </div>
           </div>
         </section> */}
-        
+        {
+          auth?.user?.email
+        }
+
       </Layout>
     </div>
   );
