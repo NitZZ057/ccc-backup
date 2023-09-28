@@ -7,7 +7,6 @@ const HallOfFame = () => {
         <Layout>
             <div className="hall-of-fame">
                 <div className="hall-of-fame-div">
-
                     <div className="hall-of-fame-content">
                         Coming soon...
                     </div>

@@ -1,6 +1,4 @@
-import multer from 'multer';
 import express from 'express';
-import eventImg from '../models/eventModel.js'
 import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js';
 import {eventImageController,getEventImageController,deleteEventImgController,resetScoreController} from '../controllers/eventControllers.js'
 import formidable from "express-formidable";

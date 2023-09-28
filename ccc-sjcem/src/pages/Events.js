@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
+import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -6,30 +7,70 @@ import "aos/dist/aos.css";
 import Layout from "../components/Layout";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
 
-import Group661 from "../assests/hackathonAndIdeathon/Group661.png";
-import icon1 from "../assests/hackathonAndIdeathon/icon1.svg";
-import icon2 from "../assests/hackathonAndIdeathon/icon2.svg";
-import icon3 from "../assests/hackathonAndIdeathon/icon3.svg";
+// import Group661 from "../assests/hackathonAndIdeathon/Group661.png";
+// import icon1 from "../assests/hackathonAndIdeathon/icon1.svg";
+// import icon2 from "../assests/hackathonAndIdeathon/icon2.svg";
+// import icon3 from "../assests/hackathonAndIdeathon/icon3.svg";
 
-import illustation from "../assests/hackathonAndIdeathon/Illustration.svg";
-import image1 from "../assests/hackathonAndIdeathon/image1.svg";
-import image2 from "../assests/hackathonAndIdeathon/image2.svg";
-import image3 from "../assests/hackathonAndIdeathon/image3.svg";
-import image4 from "../assests/hackathonAndIdeathon/image4.svg";
+// import illustation from "../assests/hackathonAndIdeathon/Illustration.svg";
+// import image1 from "../assests/hackathonAndIdeathon/image1.svg";
+// import image2 from "../assests/hackathonAndIdeathon/image2.svg";
+// import image3 from "../assests/hackathonAndIdeathon/image3.svg";
+// import image4 from "../assests/hackathonAndIdeathon/image4.svg";
 
 import "../css/event.scss";
 
 const EventPage = () => {
+
+  const [eveImg,setEveImg]=useState([])
   useEffect(() => {
     AOS.init({
       // duration : 5000
     });
   }, []);
+  useEffect(() => {
+    getImg()
+  }, [])
+
+  const getImg = async () => {
+    try {
+      const res = await axios.get('/api/v1/pastEvent/getPastEventImg')
+      setEveImg(res.data.images)
+      // setLen(res.data.images.length)
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <Layout>
       <div className="event_container">
+        <div className="event-img">
+          {
+        eveImg.map((img,index) => (
+              <div key={index} className='eve-img-div'>
+                <img key={index} className='event-img' src={img.image} width={'300px'} />
+              </div>
+
+            ))
+              }
+        </div>
         <div class="event_hero">
-          <img src={Group661} alt="HackathonAndIdeathon" />
+          {/* <img src={Group661} alt="HackathonAndIdeathon" /> */}
           <div className="hero_title">
             <h1 className="text">
               Events To <br />
@@ -55,21 +96,21 @@ const EventPage = () => {
 
         <div className="event_mid1">
           <div>
-            <img className="event_icon ion1" src={icon1} alt="icon1" />
+            {/* <img className="event_icon ion1" src={icon1} alt="icon1" /> */}
             <div>
               <h2 id="has">100%</h2>
               <p>Care Assurance</p>
             </div>
           </div>
           <div>
-            <img className="event_icon ion2" src={icon2} alt="icon2" />
+            {/* <img className="event_icon ion2" src={icon2} alt="icon2" /> */}
             <div>
               <h2>500+</h2>
               <p>Network of Developers</p>
             </div>
           </div>
           <div>
-            <img className="event_icon ion3" src={icon3} alt="icon3" />
+            {/* <img className="event_icon ion3" src={icon3} alt="icon3" /> */}
             <div>
               <h2>0</h2>
               <p>Negative Feedback</p>
@@ -79,7 +120,7 @@ const EventPage = () => {
 
         <div className="event_mid2" data-aos="fade-up">
           <div className="mid_illustration">
-            <img src={illustation} alt="ccc" />
+            {/* <img src={illustation} alt="ccc" /> */}
           </div>
           <div className="mid2_card">
             <h1>Event Full Of</h1>
@@ -101,7 +142,7 @@ const EventPage = () => {
             <div className="card_group">
               <div className="card_item1" data-aos="fade-up">
                 <div className="card_image">
-                  <img src={image1} alt="image1" />
+                  {/* <img src={image1} alt="image1" /> */}
                 </div>
                 <div class="card_text">
                   <h1>Students</h1>
@@ -113,7 +154,7 @@ const EventPage = () => {
               </div>
               <div className="card_item1" data-aos="fade-up">
                 <div className="card_image">
-                  <img src={image2} alt="image1" />
+                  {/* <img src={image2} alt="image1" /> */}
                 </div>
                 <div class="card_text">
                   <h1>Professionals</h1>
@@ -125,7 +166,7 @@ const EventPage = () => {
               </div>
               <div className="card_item1" data-aos="fade-up">
                 <div className="card_image">
-                  <img src={image3} alt="image1" />
+                  {/* <img src={image3} alt="image1" /> */}
                 </div>
                 <div class="card_text">
                   <h1>Enthusiasts</h1>
@@ -149,7 +190,7 @@ const EventPage = () => {
                 <button className="btn_apply">Apply</button>
               </div>
               <div className="second" data-aos="fade-up">
-                <img src={image4} alt="ccc_image4" />
+                {/* <img src={image4} alt="ccc_image4" /> */}
               </div>
             </div>
           </div>

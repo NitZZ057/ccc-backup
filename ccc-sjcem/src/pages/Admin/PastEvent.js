@@ -1,0 +1,106 @@
+import React, { useState, useEffect } from 'react'
+import Layout from '../../components/Layout'
+import axios from 'axios'
+import '../../css/eventForm.css'
+
+const EventForm = () => {
+  const [image, setImage] = useState("")
+  const [name, setName] = useState("photo")
+  const [images, setImages] = useState([])
+
+  const eventSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const imgData = new FormData();
+      imgData.append("name", name);
+      imgData.append("image", image);
+      const imgRes = await axios.post(`/api/v1/pastEvent/pastEventImg`, imgData);
+
+      if (imgRes.data.success) {
+        alert('image uploaded please refresh the page')
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+
+
+
+  };
+
+
+  useEffect(() => {
+    getImg()
+  }, [])
+
+  const getImg = async () => {
+    try {
+      const res = await axios.get('/api/v1/pastEvent/getPastEventImg')
+      setImages(res.data.images)
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+
+
+  return (
+    <Layout>
+      <div className='event-input'>
+        <form className='event-form' onSubmit={eventSubmit}>
+          <h2 className="event-heading">Add Past Event</h2>
+          <label htmlFor='event-image'>
+            event image
+            <input
+              type="file"
+              accept="image/*"
+              required
+              name="event-image"
+              placeholder="question"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+          </label>
+          {
+            image && (
+              <img src={URL.createObjectURL(image)} height={"200px"} alt="" />
+            )
+          }
+
+          <button type='submit' className='que-btn'>
+            submit
+          </button>
+        </form>
+
+        <div className="event-img-head">Current Images</div>
+
+        <div className="show-images">
+          
+          {
+            images.map((img,index) => (
+              <div key={index} className='eve-img-div'>
+                <img key={index} className='event-img' src={img.image} width={'300px'} />
+                <button onClick={(e)=>{
+                  axios.delete(`/api/v1/pastEvent/deletePastEventImg/${img._id}`)
+                  .then((res)=>{
+                    alert('image deleted')
+                    getImg()
+                  })
+                  .catch((err)=>{
+                    console.log(err)
+                  })
+                }} className='delete-btn'>delete</button>
+              </div>
+
+            ))
+          }
+        </div>
+
+      </div>
+
+
+    </Layout>
+  )
+}
+
+export default EventForm

@@ -16,6 +16,7 @@ import potdRoutes from './routes/potdRoutes.js';
 import authRoutes from './routes/authRoutes.js'
 import imgRout from './routes/imgRouts.js'
 import eventRoutes from './routes/eventRoutes.js'
+import pastEveRoutes from './routes/pastEveRoutes.js'
 
 const app = express();
 dotenv.config();
@@ -44,6 +45,7 @@ app.use('/api/v1/potd',potdRoutes);
 app.use('/api/v1/auth',authRoutes);
 app.use('/api/v1/question', imgRout);
 app.use('/api/v1/event', eventRoutes);
+app.use('/api/v1/pastEvent', pastEveRoutes);
 // app.post('/api/v1/potd',(req,res)=>{
 //     console.log(req.body)
 // })
@@ -53,11 +55,11 @@ app.use("*", function(req, res){
 });
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-    }
+    } 
 );
 
 

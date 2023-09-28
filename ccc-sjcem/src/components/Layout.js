@@ -122,11 +122,11 @@ const Layout = (props) => {
                   Hall of Fame
                 </div>
               </NavLink>
-              {/* <NavLink to="/about" title="team">
+              <NavLink to="/events" title="events">
                 <div className="navBarButtons" >
-                  Team
+                  Events
                 </div>
-              </NavLink> */}
+              </NavLink>
               <NavLink to="/potd" title="potd">
                 <div className="navBarButtons">
                   POTD
