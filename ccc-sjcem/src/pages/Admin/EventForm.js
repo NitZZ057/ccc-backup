@@ -7,6 +7,8 @@ const EventForm = () => {
   const [image, setImage] = useState("")
   const [name, setName] = useState("photo")
   const [images, setImages] = useState([])
+  const loader = document.getElementsByClassName('loader-container')[0]
+
 
 
   const changeHandle = (e) => {
@@ -22,7 +24,9 @@ const EventForm = () => {
       const imgData = new FormData();
       imgData.append("name", name);
       imgData.append("image", image);
+      loader.style.display='flex'
       const imgRes = await axios.post(`/api/v1/event/eventimg`, imgData);
+      loader.style.display='none'
 
       if (imgRes.data.success) {
         alert('image uploaded please refresh the page')
@@ -56,6 +60,15 @@ const EventForm = () => {
   return (
     <Layout>
       <div className='event-input'>
+      <div class="loader-container wait">
+        <div class="loading-text">Please wait uploading...</div>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
         <form className='event-form' onSubmit={eventSubmit}>
           <h2 className="event-heading">Add event</h2>
           <label htmlFor='event-image'>

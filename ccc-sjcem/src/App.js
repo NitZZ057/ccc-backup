@@ -22,6 +22,7 @@ import ForgotPassword from "./pages/Auth/ForgotPassword";
 import ResetPassword from "./pages/Auth/ResetPassword";
 import PastEvent from "./pages/Admin/PastEvent";
 import Events from "./pages/Events"
+import AddHof from './pages/Admin/AddHOF'
 
 function App() {
   useEffect(() => {
@@ -46,6 +47,7 @@ function App() {
           <Route path="add-que" element={<QuestionForm />} />
           <Route path="add-event" element={<EventForm />} />
           <Route path="add-pastEve" element={<PastEvent />} />
+          <Route path="add-hofDetails" element={<AddHof />} />
         </Route>
         <Route path="/potd" element={<Potd />} />
         <Route path="/*" element={<Pnf />} />

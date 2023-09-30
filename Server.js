@@ -17,6 +17,7 @@ import authRoutes from './routes/authRoutes.js'
 import imgRout from './routes/imgRouts.js'
 import eventRoutes from './routes/eventRoutes.js'
 import pastEveRoutes from './routes/pastEveRoutes.js'
+import hofRoutes from './routes/hofRoutes.js'
 
 const app = express();
 dotenv.config();
@@ -46,6 +47,7 @@ app.use('/api/v1/auth',authRoutes);
 app.use('/api/v1/question', imgRout);
 app.use('/api/v1/event', eventRoutes);
 app.use('/api/v1/pastEvent', pastEveRoutes);
+app.use('/api/v1/hof/', hofRoutes);
 // app.post('/api/v1/potd',(req,res)=>{
 //     console.log(req.body)
 // })

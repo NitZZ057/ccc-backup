@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 const pastEventSchema=mongoose.Schema(
     {
         image:String,
-        cloudinary_id:String
+        eventName:String,
+        discription:String
+
     },{
         collection:'pastEventImg'
     }

@@ -2,7 +2,7 @@
 
 .event-input{
     width: 100%;
-    padding: 5%;
+    padding: 0 5% 5% 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,4 +62,48 @@ flex-wrap: wrap;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+.loader-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
+.loader {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+.loader div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+    border: 8px solid #3498db;
+    border-radius: 50%;
+    animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #3498db transparent transparent transparent;
+}
+.loader div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.loader div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.loader div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes loader {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+.loading-text {
+    font-size: 18px;
 }

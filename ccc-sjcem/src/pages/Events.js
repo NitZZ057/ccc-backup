@@ -35,6 +35,7 @@ const EventPage = () => {
   const getImg = async () => {
     try {
       const res = await axios.get('/api/v1/pastEvent/getPastEventImg')
+      console.log(res.data.images);
       setEveImg(res.data.images)
       // setLen(res.data.images.length)
     } catch (error) {
@@ -63,11 +64,14 @@ const EventPage = () => {
           {
         eveImg.map((img,index) => (
               <div key={index} className='eve-img-div'>
+                <h2 className="eventName">{img.eventName}</h2>
                 <img key={index} className='event-img' src={img.image} width={'300px'} />
+                <p className="discription">{img.discription}</p>
               </div>
 
             ))
               }
+              {console.log(eveImg)}
         </div>
         <div class="event_hero">
           {/* <img src={Group661} alt="HackathonAndIdeathon" /> */}
