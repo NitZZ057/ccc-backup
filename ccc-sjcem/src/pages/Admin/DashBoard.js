@@ -49,6 +49,20 @@ const DashBoard = () => {
             </div>
           </NavLink>
         </div>
+        <div className="add-event-div">
+          <NavLink  to="/admin/add-pastEve" title="add-pasEve">
+            <div className="navBarButtons add-event" >
+              Add Past Event
+            </div>
+          </NavLink>
+        </div>
+        <div className="add-event-div">
+          <NavLink  to="/admin/add-hofDetails" title="add-hofDetails">
+            <div className="navBarButtons add-event" >
+              Add HOF Details
+            </div>
+          </NavLink>
+        </div>
         </div>
       </div>
     </Layout>

@@ -40,9 +40,9 @@ const Layout = (props) => {
             <div>
               <img src='/images/logo.png' className="navBarImage" alt="CCCLogo" />
             </div>
-            <img   onClick={showMenu} className="menu" src="/images/menu.png" /></div>
+            <img onClick={showMenu} className="menu" src="/images/menu.png" /></div>
           <div ref={navbar} className="navBar">
-            <img onClick={hideMenu} className="cross" src='/images/xw.png'/>
+            <img onClick={hideMenu} className="cross" src='/images/xw.png' />
             <div className="navflex2 nav-lf">
               <NavLink to="/">
                 <div className="">
@@ -64,8 +64,8 @@ const Layout = (props) => {
                 </div>
               </NavLink> */}
 
-              
-              
+
+
               {/* <NavLink to="/events" title="events">
                 <div className="navBarButtons">
                   Events
@@ -93,7 +93,7 @@ const Layout = (props) => {
             </div>
 
             <div className="navflex2 nav-mid">
-            {/* <NavLink to="/">
+              {/* <NavLink to="/">
                 <div className="navBarButtons">
                   <div>
                     <img src='/images/logo.png' className="navBarImage ccc-logo" alt="CCCLogo" />
@@ -105,14 +105,14 @@ const Layout = (props) => {
                   CCC
                 </div>
               </NavLink> */}
-              
-              
+
+
 
             </div>
 
 
             <div className="navflex2">
-            <NavLink to="/" title="home">
+              <NavLink to="/" title="home">
                 <div className="navBarButtons">
                   Home
                 </div>
@@ -120,6 +120,11 @@ const Layout = (props) => {
               <NavLink to="/hall-of-fame" title="Hall of fame">
                 <div className="navBarButtons">
                   Hall of Fame
+                </div>
+              </NavLink>
+              <NavLink to="/events" title="events">
+                <div className="navBarButtons">
+                  Events
                 </div>
               </NavLink>
               {/* <NavLink to="/about" title="team">
@@ -131,9 +136,9 @@ const Layout = (props) => {
                 <div className="navBarButtons">
                   POTD
                 </div>
-                </NavLink>
-                {/* <img className="potd-icon" src="/images/potd.png" alt="potd" /> */}
-              
+              </NavLink>
+              {/* <img className="potd-icon" src="/images/potd.png" alt="potd" /> */}
+
               {
                 auth?.user?.role == 1 ? <>
                   <NavLink to="/admin/dashboard" title="login">

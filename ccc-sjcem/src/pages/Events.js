@@ -1,33 +1,76 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
+import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "../css/eventp.css";
 
 //Components
 import Layout from "../components/Layout";
-import NewsLetter from "../components/NewsLetter/NewsLetter";
+// import NewsLetter from "../components/NewsLetter/NewsLetter";
 
-import Group661 from "../assests/hackathonAndIdeathon/Group661.png";
-import icon1 from "../assests/hackathonAndIdeathon/icon1.svg";
-import icon2 from "../assests/hackathonAndIdeathon/icon2.svg";
-import icon3 from "../assests/hackathonAndIdeathon/icon3.svg";
+// import Group661 from "../assests/hackathonAndIdeathon/Group661.png";
+// import icon1 from "../assests/hackathonAndIdeathon/icon1.svg";
+// import icon2 from "../assests/hackathonAndIdeathon/icon2.svg";
+// import icon3 from "../assests/hackathonAndIdeathon/icon3.svg";
 
-import illustation from "../assests/hackathonAndIdeathon/Illustration.svg";
-import image1 from "../assests/hackathonAndIdeathon/image1.svg";
-import image2 from "../assests/hackathonAndIdeathon/image2.svg";
-import image3 from "../assests/hackathonAndIdeathon/image3.svg";
-import image4 from "../assests/hackathonAndIdeathon/image4.svg";
+// import illustation from "../assests/hackathonAndIdeathon/Illustration.svg";
+// import image1 from "../assests/hackathonAndIdeathon/image1.svg";
+// import image2 from "../assests/hackathonAndIdeathon/image2.svg";
+// import image3 from "../assests/hackathonAndIdeathon/image3.svg";
+// import image4 from "../assests/hackathonAndIdeathon/image4.svg";
 
-import "../css/event.scss";
+// import "../css/event.scss";
 
 const EventPage = () => {
+  const [eveImg,setEveImg]=useState([])
   useEffect(() => {
     AOS.init({
       // duration : 5000
     });
   }, []);
+  useEffect(() => {
+    getImg()
+  }, [])
+
+  const getImg = async () => {
+    try {
+      const res = await axios.get('/api/v1/pastEvent/getPastEventImg')
+      console.log(res.data.images);
+      setEveImg(res.data.images)
+      // setLen(res.data.images.length)
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  
   return (
     <Layout>
-      <div className="event_container">
+      <div class="gallery">
+        <div class="card">
+          <img src="https://img.freepik.com/free-photo/view-brightly-colored-frog-nature_23-2150453188.jpg?t=st=1691128330~exp=1691131930~hmac=10a3a28429a4d384749a210b3aa1bed6fdc8c970715364865872d73a30b9878b&w=740" alt=""/>
+            <div class="description">
+              <h1>Rana</h1>
+              <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex hic corporis animi harum? Nisi quis ipsum laborum a animi perspiciatis assumenda quae deserunt porro, soluta voluptatum molestiae. Eveniet, aliquam! Mollitia? </p>
+            </div>
+        </div>
+        <div class="card">
+          <img src="https://img.freepik.com/free-photo/closeup-scarlet-macaw-from-side-view-scarlet-macaw-closeup-head_488145-3540.jpg?w=740&t=st=1691128835~exp=1691129435~hmac=cf4add8cc138b51f673199bef484a8b6e73e2a38bb2c66f19b0520fbd4231875" alt=""/>
+            <div class="description">
+              <h1>Guacamaya</h1>
+              <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex hic corporis animi harum? Nisi quis ipsum laborum a animi perspiciatis assumenda quae deserunt porro, soluta voluptatum molestiae. Eveniet, aliquam! Mollitia? </p>
+            </div>
+        </div>
+
+        <div class="card">
+          <img src="https://img.freepik.com/free-photo/cute-chameleon-plant_23-2148949385.jpg?w=740&t=st=1691128794~exp=1691129394~hmac=0cfb7bc50fd1ff0983e2525c90cd2a3fbffd916aa374ae063d95232dcd2c4b35" alt=""/>
+            <div class="description">
+              <h1>Camaleon</h1>
+              <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex hic corporis animi harum? Nisi quis ipsum laborum a animi perspiciatis assumenda quae deserunt porro, soluta voluptatum molestiae. Eveniet, aliquam! Mollitia? </p>
+            </div>
+        </div>
+      </div>
+      {/* <div className="event_container">
         <div class="event_hero">
           <img src={Group661} alt="HackathonAndIdeathon" />
           <div className="hero_title">
@@ -158,7 +201,7 @@ const EventPage = () => {
         <div className="newsLetter">
           <NewsLetter />
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 };

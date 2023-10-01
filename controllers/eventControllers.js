@@ -8,97 +8,98 @@ dotenv.config();
 
 export const eventImageController = async (req, res) => {
     try {
-        // const {name,image,imgData} = req.body;
-        const {image} = req.files;
+        // const {name,imgData} = req.body;
+        const { image } = req.files;
+    
         const result = await cloudinary.uploader.upload(image.path, {
             folder: "event",
             width: 150,
             crop: "scale",
-          });
+        });
 
-          console.log(result);
-          await eventModel.create({
+        console.log(result);
+        await eventModel.create({
             image: result.secure_url,
             cloudinary_id: result.public_id,
-            });
+        });
 
-            return res.status(200).send({
-                success:true,
-                message:'image uploaded'
-            })
+        return res.status(200).send({
+            success: true,
+            message: 'image uploaded'
+        })
     } catch (error) {
         return res.status(500).send({
-            success:false,
-            message:'error in uploading image'
+            success: false,
+            message: 'error in uploading image'
         })
     }
 }
 
-export const getEventImageController = async (req,res) =>{
+export const getEventImageController = async (req, res) => {
     try {
         const images = await eventModel.find({});
         // console.log(images)
-        if(!images){
+        if (!images) {
             return res.status(404).send({
-                success:false,
-                message:'No image found'
+                success: false,
+                message: 'No image found'
             })
         }
 
         return res.status(200).send({
-            success:true,
-            images:images
+            success: true,
+            images: images
         })
     } catch (error) {
         return res.status(500).send({
-            success:false,
-            message:'error in getting images'
+            success: false,
+            message: 'error in getting images'
         })
     }
 }
 
-export const deleteEventImgController = async (req,res) =>{
+export const deleteEventImgController = async (req, res) => {
     try {
-        const {id} = req.params;
+        const { id } = req.params;
         // const image = await eventModel.findOne({_id:id});
         // console.log(image.cloudinary_id);
         // await cloudinary.uploader.destory(image.cloudinary_id);
-        await eventModel.findByIdAndDelete({_id:id});
+        await eventModel.findByIdAndDelete({ _id: id });
         return res.status(200).send({
-            success:true,
-            message:'image deleted'
+            success: true,
+            message: 'image deleted'
         })
     } catch (error) {
         return res.status(500).send({
-            success:false,
-            message:'error in deleting image'
+            success: false,
+            message: 'error in deleting image'
         })
     }
 }
 
-export const resetScoreController = async (req,res) =>{
+export const resetScoreController = async (req, res) => {
     try {
-        const result = await userModel.updateMany({},{$set:{score:0}});
-        if(result.modifiedCount > 0){
+        const result = await userModel.updateMany({}, { $set: { score: 0 } });
+        if (result.modifiedCount > 0) {
             return res.status(200).send({
-                success:true,
-                message:'Score upadted successfully',
-                result:result
-    
+                success: true,
+                message: 'Score upadted successfully',
+                result: result
+
             })
         }
 
         return res.status(404).send({
-            success:false,
-            message:'No user found'
+            success: false,
+            message: 'No user found'
         })
 
-        
+
     } catch (error) {
         console.log(error)
         return res.status(500).send({
-            success:false,
-            message:'error in updating score'
+            success: false,
+            message: 'error in updating score'
         })
     }
 }

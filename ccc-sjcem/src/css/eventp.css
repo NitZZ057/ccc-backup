@@ -1,0 +1,60 @@
+.card img {
+    height: 400px;
+    width: 250px;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.gallery {
+    display: flex;
+}
+
+.card {
+    height: 380px;
+    margin: 50px;
+    box-shadow: 5px 5px 20px black;
+    overflow: hidden;
+    position: relative;
+}
+
+.description {
+    height: 60px;
+    width: 250px;
+    padding: 6px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 10px;
+    color: #FFF;
+    transition: .5s;
+}
+
+.gallery h1 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+.gallery p {
+    font-size: 14px;
+    margin: 10px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:hover .description {
+    height: 200px;
+    bottom: -4px;
+    background: black;
+}
+
+.card:hover p {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
