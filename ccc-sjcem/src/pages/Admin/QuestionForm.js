@@ -30,13 +30,10 @@ const QuestionForm = () => {
       imgData.append('question', question);
       imgData.append('testcase', testcase);
       imgData.append('output', output);
-      loader.style.display = 'flex'
       const imgRes = await axios.post(
         "/api/v1/question/upload-img",
         imgData
       );
-      loader.style.display = 'none'
-
       if (imgRes.data.success) {
         alert('image uploaded')
         navigate('/potd')
@@ -54,15 +51,6 @@ const QuestionForm = () => {
     <Layout>
 
       <div className="photoInput">
-        <div class="loader-container wait">
-          <div class="loading-text">Please wait uploading...</div>
-          <div class="loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
         <div className="form-container">
           <form className="que-form" onSubmit={imgSubmit}>
             <h2 className="que-heading">Add Question</h2>

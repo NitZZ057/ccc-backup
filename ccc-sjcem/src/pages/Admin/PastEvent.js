@@ -17,12 +17,12 @@ const EventForm = () => {
       imgData.append("image", image);
       imgData.append('eventName', eventName);
       imgData.append('discription', discription);
-      loader.style.display='flex';
+      loader.style.display = 'flex';
       const imgRes = await axios.post(
         "/api/v1/pastEvent/pastEventImg",
         imgData
       );
-      loader.style.display='none';
+      loader.style.display = 'none';
       if (imgRes.data.success) {
         alert('image uploaded')
         // navigate('/')
@@ -55,63 +55,63 @@ const EventForm = () => {
   return (
     <Layout>
       <div className='event-input'>
-      <div class="loader-container wait">
-        <div class="loading-text">Please wait uploading...</div>
-        <div class="loader">
+        <div class="loader-container wait">
+          <div class="loading-text">Please wait uploading...</div>
+          <div class="loader">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
+          </div>
         </div>
-    </div>
         <form className="event-form" onSubmit={eventSubmit}>
-            <h2 className="event-heading">Add Question</h2>
-            <label htmlFor="event-image">
-              Add quesion image
-              <input
-                type="file"
-                accept="image/*"
-                required
-                name="event-image"
-                placeholder="event"
-                onChange=
-                {(e) => setImage(e.target.files[0])}
-              />
-            </label>
-            <label htmlFor="event-name">
-              Event Name
-              <input value={eventName} onChange={(e) => setEventName(e.target.value)}type="text" name="event-name" />
-            </label>
+          <h2 className="event-heading">Add Past Event</h2>
+          <label htmlFor="event-image">
+            Add Event Image
+            <input
+              type="file"
+              accept="image/*"
+              required
+              name="event-image"
+              placeholder="event"
+              onChange=
+              {(e) => setImage(e.target.files[0])}
+            />
+          </label>
+          <label htmlFor="event-name">
+            Event Name
+            <input value={eventName} onChange={(e) => setEventName(e.target.value)} type="text" name="event-name" />
+          </label>
 
-            <label htmlFor="discription">
-             Discription
-              <input value={discription} onChange={(e) => setDiscription(e.target.value)} type="text" name="discription" />
-            </label>
+          <label htmlFor="discription">
+            Discription
+            <input value={discription} onChange={(e) => setDiscription(e.target.value)} type="text" name="discription" />
+          </label>
 
-            <button type="submit" className="event-btn">
-              submit
-            </button>
-          </form>
+          <button type="submit" className="event-btn">
+            submit
+          </button>
+        </form>
 
         <div className="event-img-head">Current Images</div>
 
         <div className="show-images">
-          
+
           {
-            images.map((img,index) => (
+            images.map((img, index) => (
               <div key={index} className='eve-img-div'>
-                <h2 className="eventName">{img.eventName}</h2>
+                <h2 className="eventName" style={{color:'black'}}>{img.eventName}</h2>
                 <img key={index} className='event-img' src={img.image} width={'300px'} />
-                <p className="discription">{img.discription}</p>
-                <button onClick={(e)=>{
+                <p className="discription" style={{color:'black'}}>{img.discription}</p>
+                <button onClick={(e) => {
                   axios.delete(`/api/v1/pastEvent/deletePastEventImg/${img._id}`)
-                  .then((res)=>{
-                    alert('image deleted')
-                    getImg()
-                  })
-                  .catch((err)=>{
-                    console.log(err)
-                  })
+                    .then((res) => {
+                      alert('image deleted')
+                      getImg()
+                    })
+                    .catch((err) => {
+                      console.log(err)
+                    })
                 }} className='delete-btn'>delete</button>
               </div>
 

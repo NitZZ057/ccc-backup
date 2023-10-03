@@ -17,7 +17,6 @@ export const eventImageController = async (req, res) => {
             crop: "scale",
         });
 
-        console.log(result);
         await eventModel.create({
             image: result.secure_url,
             cloudinary_id: result.public_id,

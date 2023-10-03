@@ -35,6 +35,7 @@ function App() {
         {/* <Route path="/about" element={<AboutPage />} /> */}
         <Route path="/events" element={<Events />} />
         <Route path="/hall-of-fame" element={<HallOfFame />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/protected" element={<ProtectedRoute />} >
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />

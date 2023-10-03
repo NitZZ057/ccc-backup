@@ -123,15 +123,10 @@ const Layout = (props) => {
                 </div>
               </NavLink>
               <NavLink to="/events" title="events">
-                <div className="navBarButtons">
+                <div className="navBarButtons" >
                   Events
                 </div>
               </NavLink>
-              {/* <NavLink to="/about" title="team">
-                <div className="navBarButtons" >
-                  Team
-                </div>
-              </NavLink> */}
               <NavLink to="/potd" title="potd">
                 <div className="navBarButtons">
                   POTD

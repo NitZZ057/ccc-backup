@@ -18,15 +18,15 @@ export const registerController = async (req, res) => {
         }
 
         //
-        const mis_id = email.split('@')[0];
+        // const mis_id = email.split('@')[0];
 
-        const ccc_member = await cccMemberModel.findOne({mis_id})
-        if(!ccc_member){
-            return res.status(200).send({
-                success: false,
-                message: "You are not a CCC member. Please Contact CCC team."
-            })
-        }
+        // const ccc_member = await cccMemberModel.findOne({mis_id})
+        // if(!ccc_member){
+        //     return res.status(200).send({
+        //         success: false,
+        //         message: "You are not a CCC member. Please Contact CCC team."
+        //     })
+        // }
 
         //
 
