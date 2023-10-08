@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 
 const hofDetailsSchema=mongoose.Schema(
     {
-        rank:String,
-        name:String,
+        fname:String,
+        lname:String,
+        branch:String,
         score:String,
         year:String,
         month:String

@@ -1,7 +1,8 @@
 import React, { useEffect,useState } from "react";
 import axios from "axios";
 import AOS from "aos";
-import "aos/dist/aos.css";
+// import "aos/dist/aos.css";
+import '../css/eventp.css';
 
 //Components
 import Layout from "../components/Layout";
@@ -44,26 +45,13 @@ const EventPage = () => {
 
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <Layout>
       <div className="event_container">
         <div className="event-img">
           {
         eveImg.map((img,index) => (
-              <div key={index} className='eve-img-div'>
+              <div key={index} className='card'>
                 <h2 className="eventName">{img.eventName}</h2>
                 <img key={index} className='event-img' src={img.image} width={'300px'} />
                 <p className="discription">{img.discription}</p>
@@ -71,7 +59,6 @@ const EventPage = () => {
 
             ))
               }
-              {console.log(eveImg)}
         </div>
         <div class="event_hero">
           {/* <img src={Group661} alt="HackathonAndIdeathon" /> */}

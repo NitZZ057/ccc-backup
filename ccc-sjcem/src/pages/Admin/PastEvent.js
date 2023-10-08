@@ -65,9 +65,9 @@ const EventForm = () => {
         </div>
     </div>
         <form className="event-form" onSubmit={eventSubmit}>
-            <h2 className="event-heading">Add Question</h2>
+            <h2 className="event-heading">Add Past Event</h2>
             <label htmlFor="event-image">
-              Add quesion image
+              Add Event Image
               <input
                 type="file"
                 accept="image/*"

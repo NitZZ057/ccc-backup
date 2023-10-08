@@ -4,8 +4,9 @@ import axios from "axios";
 import "../../css/eventForm.css";
 
 const AddHOF = () => {
-  const [rankk, setRank] = useState("");
-  const [namee, setName] = useState("");
+  const [fnamee, setFname] = useState("");
+  const [lnamee, setLname] = useState("");
+  const [branch, setBranch] = useState("");
   const [scoree, setScore] = useState("");
   const [yearr, setYear] = useState("");
   const [monthh, setmonth] = useState("");
@@ -19,8 +20,9 @@ const AddHOF = () => {
     e.preventDefault();
     try {
       const imgData = new FormData();
-      imgData.append("rank", rankk);
-      imgData.append("name", namee);
+      imgData.append("fname", fnamee);
+      imgData.append("lname", lnamee);
+      imgData.append("branch", branch);
       imgData.append("score", scoree);
       imgData.append("year", yearr);
       imgData.append("month", monthh);
@@ -97,22 +99,31 @@ const AddHOF = () => {
             Score: 120
             Month September
             */}
-          <label htmlFor="winner-rank">
-            Rank : (Ex. First)
+          <label htmlFor="winner-fname">
+            First Name
             <input
-              value={rankk}
-              onChange={(e) => setRank(e.target.value)}
+              value={fnamee}
+              onChange={(e) => setFname(e.target.value)}
               type="text"
-              name="winner-rank"
+              name="winner-fname"
             />
           </label>
-          <label htmlFor="winner-name">
-            Winner Name : (Ex. Rupesh Jadhav T. E. Comps)
+          <label htmlFor="winner-lname">
+            Last Name
             <input
-              value={namee}
-              onChange={(e) => setName(e.target.value)}
+              value={lnamee}
+              onChange={(e) => setLname(e.target.value)}
               type="text"
-              name="winner-name"
+              name="winner-lname"
+            />
+          </label>
+          <label htmlFor="winner-branch">
+            Branch & Year
+            <input
+              value={branch}
+              onChange={(e) => setBranch(e.target.value)}
+              type="text"
+              name="winner-branch"
             />
           </label>
           <label htmlFor="winner-score">
@@ -170,11 +181,11 @@ const AddHOF = () => {
         <div className="show-images">
           {details.map((img, index) => (
             <div key={index} className="details">
-              <h5>rank:{img.rank}</h5>
-              <h5>name:{img.name}</h5>
-              <h5>score:{img.score}</h5>
-              <h5>year:{img.year}</h5>
-              <h5>month:{img.month}</h5>
+              <h1>{img.fname} <br /> {img.lname} </h1>
+              <h2>{img.branch}</h2>
+              <h2>{img.score}</h2>
+              <h2>{img.year}</h2>
+              <h2>{img.month}</h2>
               <button
                 onClick={(e) => {
                   axios

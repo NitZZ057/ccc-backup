@@ -1,14 +1,17 @@
 
 .hall-of-fame{
-    background-color: #f5f5f5;
-    padding: 20px;
-    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #EEEEEE;
+    padding: 0px;
+    margin-top: 0px;
     border-radius: 5px;
+    color: black;
 }
 
 .hall-of-fame-div{
     width: 100%;
-    height: 70vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,4 +21,256 @@
 
 .hall-of-fame-content{
     font-size: 40px;
+    height: 100%;
+    width: 100%;
+}
+
+.show-images{
+    height: 100%;
+    width: 100%;
+}
+.winner{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+}
+.htag{
+    font-family: 'roboto', sans-serif;
+    font-size: 3.5rem;
+}
+.htagg{
+    font-family: 'roboto', sans-serif;
+    font-size: 3.5rem;
+    margin: 40px 0 0 0;
+}
+.st0,.st1,.st2{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    margin: 0 20px;
+}
+
+.circle0{
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: -20%;
+    left: 10%;
+}
+
+.circle0 h1{
+    position: relative;
+    left: 34%;
+    top: 8%;
+    font-size: 6em;
+    font-family: 'Raleway';
+    font-weight: 900;
+}
+.circle1{
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: -3%;
+    left: 10%;
+}
+.circle1 h1{
+    position: relative;
+    left: 33%;
+    top: 10%;
+    font-size: 5em;
+    font-family: 'Raleway';
+    font-weight: 900;
+}
+.circle2{
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 15%;
+    left: 14%;
+}
+.circle2 h1{
+    position: relative;
+    left: 34%;
+    top: 3%;
+    font-size: 4em;
+    font-family: 'Raleway';
+    font-weight: 900;
+}
+
+
+.detail0 {
+    background-color: gold;
+    padding: 87px 30px 30px 30px;
+    color: black;
+    height: 94%;
+    border-radius: 15px;
+
+}
+.detail0 h1{
+    font-size: 2.7rem;
+    
+}
+.detail0 h2{
+    font-size: 30px;
+}
+.detail1{
+    background-color: silver;
+    padding: 77px 30px 30px 30px;
+    color: black;
+    height: 80%;
+    border-radius: 15px;
+
+}
+.detail1 h1{
+    font-size: 2rem;
+}
+.detail1 h2{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.detail2{
+    background-color: #cd7f32;
+    padding: 66px 30px 30px 30px;
+    color: black;
+    height: 66%;
+    border-radius: 15px;
+}
+.detail2 h1{
+    font-size: 2rem;
+}
+.detail2 h2{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.imgDiv{
+    text-align: center;
+}
+.leaderboard-img{
+    display: inline-block;
+    padding: 0 30px 30px 30px;
+}
+
+@media screen and (max-width: 768px) {
+      .winner {
+        margin-top: 20px; 
+    }
+    
+    .htag {
+        font-size: 2rem;
+        margin: 20px 0 0 0;
+    }
+    
+    .htagg {
+        font-size: 2rem; 
+        margin: 20px 0 0 0;
+    }
+    
+    .st0, .st1, .st2 {
+        
+        padding: 5px;
+        margin: 0 5px;  
+    }
+    
+    .circle0 {
+        
+        width: 85px;  
+        height: 85px;  
+        top:-20%;  
+        left: 10%;  
+    }
+    
+    .circle0 h1 {
+        
+        font-size: 4em;  
+    }
+    
+    .circle1 {
+        
+        width: 80px;  
+        height: 80px;  
+        top: -3%;  
+        left: 12%;  
+    }
+    
+    .circle1 h1 {
+        
+        font-size: 3em;  
+    }
+    
+    .circle2 {
+        
+        width: 70px;  
+        height: 70px;  
+        top: 10%;  
+        left: 13%;  
+    }
+    
+    .circle2 h1 {
+        
+        font-size: 2.5em;  
+    }
+    
+    .detail0 {
+        
+        padding: 30px 10px 10px 10px;  
+        height: 95%;  
+    }
+    
+    .detail0 h1 {
+        
+        font-size: 22px;  
+    }
+    
+    .detail0 h2 {
+        
+        font-size: 15px;  
+        margin-bottom: 5px;
+    }
+    
+    .detail1 {
+        
+        padding: 25px 10px 10px 10px;  
+        height: 76%;  
+    }
+    
+    .detail1 h1 {
+        
+        font-size: 18px;  
+    }
+    
+    .detail1 h2 {
+        
+        font-size: 13px;  
+        margin-bottom: 2px;  
+    }
+    
+    .detail2 {
+        
+        padding: 20px 10px 10px 10px;  
+        height: 65%;  
+    }
+    
+    .detail2 h1 {
+        
+        font-size: 16px;  
+    }
+    
+    .detail2 h2 {
+        
+        font-size: 11px;  
+        margin-bottom: 2px;  
+    }
+    .leaderboard-img{
+        display: inline-block;
+        padding: 0 10px 10px 10px;
+    }
 }

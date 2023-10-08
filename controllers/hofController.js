@@ -39,9 +39,9 @@ export const uploadLeadImg = async (req, res) => {
 
 export const uploadHofDetails = async (req, res) => {
     try {
-        const {rank,name,score,year,month} = req.fields;
+        const {fname,lname,branch,score,year,month} = req.fields;
        
-          const addImg =  await hofDetails.create({rank:rank,name:name,score:score,year:year,month:month})
+          const addImg =  await hofDetails.create({fname:fname,lname:lname,branch:branch,score:score,year:year,month:month})
           return res.status(200).send({
             success:true,
           })
